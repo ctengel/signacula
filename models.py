@@ -11,9 +11,9 @@ class Bookmark(SQLModel, table=True):
     title: str | None = None
     backend: str | None = None
     frequency: int | None = None
-    favicon: None = None  # TODO
+    favicon: str | None = None  # TODO a URL??
     description: str | None = None
-    image: None = None  # TODO
+    image: str | None = None  # TODO a URL??
     site_name: str | None = None
     rating: float | None = None
 
@@ -28,7 +28,7 @@ class Action(SQLModel, table=True):
     """A record taken of an action on a bookmark"""
     id: int | None = Field(default=None, primary_key=True)
     bookmark_id: int = Field(foreign_key="bookmark.id")
-    action_type: None = None  # TODO archive, spider, review, develop
+    action_type: str | None = None  # TODO archive, spider, review, develop
     started: datetime.datetime | None = None
     completed: datetime.datetime | None = None
     error: str | None
